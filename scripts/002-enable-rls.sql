@@ -50,3 +50,5 @@ CREATE POLICY "Anyone can view topics" ON topics FOR SELECT TO authenticated USI
 
 ALTER TABLE questions ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Anyone can view questions" ON questions FOR SELECT TO authenticated USING (true);
+
+
