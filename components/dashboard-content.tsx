@@ -5,8 +5,9 @@ import type { Profile, PracticeTest, UserProgress, StudySession } from "@/lib/ty
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
-import { Star, BookOpen, Target, TrendingUp, Play, LogOut } from "lucide-react"
+import { BookOpen, Target, TrendingUp, Play, LogOut } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { createClient } from "@/lib/supabase/client"
 import { useRouter } from "next/navigation"
 
@@ -41,12 +42,20 @@ export function DashboardContent({ user, profile, recentTests, progress, todaySe
       {/* Header */}
       <header className="border-b">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <Star className="w-6 h-6 text-white" />
+          <Link href="/dashboard" className="flex items-center gap-2">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center overflow-hidden">
+              <Image
+                src="/prepai-mark-1024.png"
+                alt="PrepAI"
+                width={26}
+                height={26}
+                priority
+                className="object-contain"
+              />
             </div>
             <span className="text-xl font-bold">PrepAI</span>
-          </div>
+          </Link>
+
           <div className="flex items-center gap-4">
             <span className="text-sm text-muted-foreground">{user.email}</span>
             <Button variant="ghost" size="sm" onClick={handleSignOut}>
@@ -232,7 +241,7 @@ export function DashboardContent({ user, profile, recentTests, progress, todaySe
                 </Button>
                 <Button variant="outline" className="w-full justify-start bg-transparent" asChild>
                   <Link href="/profile">
-                    <Star className="w-4 h-4 mr-2" />
+                    <Target className="w-4 h-4 mr-2" />
                     Edit Profile
                   </Link>
                 </Button>
