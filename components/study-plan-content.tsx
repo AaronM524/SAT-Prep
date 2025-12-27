@@ -9,7 +9,6 @@ import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import {
-  Star,
   ArrowLeft,
   Target,
   Calendar,
@@ -22,6 +21,7 @@ import {
   ArrowRight,
 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { useRouter } from "next/navigation"
 
 interface StudyPlanWithTopic extends StudyPlan {
@@ -119,13 +119,22 @@ export function StudyPlanContent({ user, profile, plans, progress, categories, t
                 <ArrowLeft className="w-5 h-5" />
               </Link>
             </Button>
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <Star className="w-6 h-6 text-white" />
+
+            <Link href="/dashboard" className="flex items-center gap-2">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center overflow-hidden">
+                <Image
+                  src="/prepai-mark-1024.png"
+                  alt="PrepAI"
+                  width={26}
+                  height={26}
+                  priority
+                  className="object-contain"
+                />
               </div>
               <span className="text-xl font-bold">PrepAI</span>
-            </div>
+            </Link>
           </div>
+
           <span className="text-sm text-muted-foreground">{user.email}</span>
         </div>
       </header>
