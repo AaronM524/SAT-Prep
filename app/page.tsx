@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server"
 import { redirect } from "next/navigation"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Star, ChevronRight, Clock, Brain, BarChart3 } from "lucide-react"
 
@@ -20,11 +21,20 @@ export default async function Home() {
       <nav className="fixed top-0 w-full z-50 bg-[#0a1628]/90 backdrop-blur-md border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <Star className="w-6 h-6 text-white" />
+            {/* ✅ PrepAI logo mark */}
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center overflow-hidden">
+              <Image
+                src="/prepai-mark-1024.png"
+                alt="PrepAI"
+                width={28}
+                height={28}
+                priority
+              />
             </div>
+
             <span className="text-xl font-bold">PrepAI</span>
           </div>
+
           <div className="flex items-center gap-4">
             <Button variant="ghost" className="text-white hover:bg-white/10" asChild>
               <Link href="/auth/login">Sign In</Link>
@@ -71,6 +81,7 @@ export default async function Home() {
                 <ChevronRight className="w-5 h-5 ml-2" />
               </Link>
             </Button>
+
             <Button
               size="lg"
               variant="outline"
@@ -171,8 +182,14 @@ export default async function Home() {
       <footer className="border-t border-white/10 py-12 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <Star className="w-5 h-5 text-white" />
+            {/* ✅ Footer logo mark */}
+            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center overflow-hidden">
+              <Image
+                src="/prepai-mark-1024.png"
+                alt="PrepAI"
+                width={22}
+                height={22}
+              />
             </div>
             <span className="font-bold">PrepAI</span>
           </div>
