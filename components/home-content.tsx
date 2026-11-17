@@ -85,11 +85,9 @@ export function HomeContent() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+          <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
             {[
               { value: "150+", label: "Avg. Score Boost" },
-              { value: "10K+", label: "Students" },
-              { value: "95%", label: "Success Rate" },
               { value: "24/7", label: "AI Support" },
             ].map((stat) => (
               <div
